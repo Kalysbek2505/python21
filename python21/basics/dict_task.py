@@ -7,7 +7,7 @@
 # b = a.pop('a')
 # print(a)
  #Task 3
-#  a = {'a': 1, 'b': 2, 'c': 1}
+# a = {'a': 1, 'b': 2, 'c': 1}
 # a['f'] = 55
 # print(a)
 #Task4
@@ -60,7 +60,7 @@
 #     b.update({val:key})
 # print(b)
 #Task 14
-# a = {'a': 3, 'b': 2}
+# a = {'a': 3, 'b': 2, 'v':3}
 # b = sum(a.values())
 # print(b)
 #Task 15
