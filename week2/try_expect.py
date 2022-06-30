@@ -73,8 +73,8 @@
 #         print(str(inp1)+str(inp2))
 #Task11
 
-inp1 = input()
-list_ = [list1 for list1 in str.split(inp1) if list1.isdigit()]
-print(list_)
-if inp1 == list_:
-    raise("Данный элемент не является числом")
+# inp1 = input()
+# list_ = [list1 for list1 in str.split(inp1) if list1.isdigit()]
+# print(list_)
+# if inp1 == list_:
+#     raise("Данный элемент не является числом")

@@ -46,9 +46,9 @@
 # a = {key:'even'  if value % 2 == 0 else 'odd' for key,value in dict_.items()}
 # print(a)
 #Task 13
-string_ = 'In 1984 there were 13 instances of a protest with over 1000 people attending'
-list_ = [list_ for list_ in str.split(string_) if list_.isdigit()]
-print(list_)
+# string_ = 'In 1984 there were 13 instances of a protest with over 1000 people attending'
+# list_ = [list_ for list_ in str.split(string_) if list_.isdigit()]
+# print(list_)
 #Task 14
 # dict_ = {
 #     'Timur': {'history': 90, 'math': 95, 'literature': 91},
