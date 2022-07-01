@@ -11,3 +11,9 @@
 # p.close()
 
 #Task3
+list_ = []
+# x = [list_.append('*') for r in range(10)]
+# print(list_)
+a = '1,2,34,5,6'
+x = [list_.append('*') for r in a.split(',')]
+print(list_)
