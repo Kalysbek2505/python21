@@ -67,3 +67,4 @@
 # a1 = {'a':1}
 # a2 = dict(a = 2)
 # a3 = dict({('Russia', 'Moscow')})
+
