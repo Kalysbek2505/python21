@@ -1,32 +1,7 @@
 import permissions
 
-
-class Category:
-    def __init__(self, title):
-        self.title = title
-
-    def __str__(self):
-        return self.title
-
-class Product:
-    def __init__(self, title, price, description, quantity):
-        self.title = title
-        self.price = price
-        self.desc = description
-        self.quantity = quantity
-    def __str__(self):
-        return (f'{self.title} [{self.quantity}] - ${self.price}\n({self.desc[:20]})')
-class Comment:
-    def __init__(self, user, product, body):
-        permissions.login_requered(user)
-        from datetime import datetime
-        self.user = user
-        self.product = product
-        self.body = body
-        self.created_at = datetime.now()
-
-
 class User:
+    objects = []
     def __init__(self, email, name, sex):
         self.email = email
         self.name = name
@@ -39,6 +14,7 @@ class User:
             raise Exception('Пароли не совпадают')
         self.__password = password
         print(f'registed {self.email}')
+        User.objects.append(self)
     
     def login(self, password):
         if self.__password != password:
