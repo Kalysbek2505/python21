@@ -28,6 +28,20 @@
 # circle.color = 'red'
 # print(circle.color)
 # print(circle.get_area())
+#Task 3
+# class BankAccount:
+#     balance = 0
+#     def deposit(self, amount):
+#         self.amount = amount
+#         BankAccount.balance += amount
+#         print(f'Ваш баланс: {BankAccount.balance} сом') 
+#     def withdraw(self, amount):
+#         self.amount = amount
+#         BankAccount.balance -= amount
+#         print(f'Ваш баланс: {BankAccount.balance} сом')
+# account = BankAccount()
+# account.deposit(1000)
+# account.withdraw(500)
 
 #Task 4
 # class Taxi:
@@ -164,3 +178,90 @@
 # print(mat.get_mul_table())
         
 #Task 10
+# class ToDo:
+#     instances = {}
+
+#     def __init__(self, todo):
+#         self.todo = todo
+    
+#     def give_priority(self, priority):
+#         self.instances.update({priority: self.todo})
+
+#     def list_of_tasks(self):
+#         todo_list = list(self.instances.items())
+#         todo_list.sort(key=lambda todo: todo[0])
+#         return todo_list
+
+# todo1 = ToDo('Сделать домашку')
+# todo2 = ToDo('Сходить в кино')
+# todo3 = ToDo('Погулять с девушкой')
+
+# todo1.give_priority(2)
+# todo2.give_priority(1)
+# todo2.give_priority(3)
+# print(ToDo.instances)
+# print(todo1.list_of_tasks())
+
+
+
+# import random
+# class Sniper:
+#   def __init__(self, name):
+#     self.name = name
+#     self.health = 100
+#   def shoots(self, sniper):
+#     sniper.health -= 20
+    
+# sniper1 = Sniper(name='Bob')
+# sniper2 = Sniper(name='Tom')
+
+# choices = (sniper1, sniper2)
+# while True:
+#     shooter = random.choice(choices)
+#     if shooter == sniper1:
+#         shot = sniper2
+#     else:
+#         shot = sniper1
+#       
+#     print(f'shooter {shooter.name} is shooting {shot.name}, has {shot.health}')
+    
+#     if sniper1.health == 0:
+#         print(f'{sniper1.name} is dead. {sniper2.name} win')
+#         break
+#     elif sniper2.health == 0:
+#         print(f'shooter {shooter.name} is shooting {shot.name}, has {shot.health}')
+#         break
+#     else:
+#         continue
+# from collections import Counter
+# class Hogwarts:
+#     Griffindor = 'Griffindor'
+#     Ravenclaw = 'Ravenclaw'
+#     Hufflepuff = 'Hufflepuff'
+#     Slytherin = 'Slytherin'
+#     def __init__(self, courage, intelligence, justice, ambition):
+#         self.courage = courage
+#         self.intelligence = intelligence
+#         self.justice = justice
+#         self.ambition = ambition
+        
+#     def sorting_hat(self):
+#         res = max(self.courage, self.intelligence, self.justice, self.ambition)
+#         if self.courage == self.intelligence and self.courage == self.justice and self.courage == self.ambition:
+#             return 'Only one character'
+#         if res == self.courage:
+#             return f'{self.courage} Идет в Грифендор'
+#         elif res == self.intelligence:
+#             return f'{self.intelligence} Идет в Равенклав'
+#         elif res == self.justice:
+#             return f'{self.justice} Идет в Хуфлепув'
+#         else:
+#             return f'{self.ambition} Идет в Слизерин'
+        
+        
+                
+
+# harry = Hogwarts(100,100,10,99)
+# print(harry.sorting_hat())
+
+

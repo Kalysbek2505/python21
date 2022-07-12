@@ -1,8 +1,26 @@
-from shop.models import Product
-from abstract.serializers import BaseSerializer
+from urls import urlpatterns
+from pprint import pprint
 
-obj1 = Product("iphone", 234, "...", 2)
-obj2 = Product("samsung", 4334, "...", 4)
-obj3 = Product("nokia", 5343, "...", 10)
-res = BaseSerializer().serialize_queryset([obj1, obj2, obj3])
-print(res)
+while True:
+    try:
+        url, arg = input("Введите адрес: ").split("/")
+    except ValueError:
+        print("Enter a valid url")
+        continue
+
+    found = False
+    for uri, view in urlpatterns:
+        print("url =", url, "uri =", uri)
+        if uri.split("/")[0] == url:
+            found = True
+
+            try:
+                if arg:
+                    pprint(view(arg))
+                else:
+                    pprint(view())
+            except Exception as e:
+                print(e)
+
+    if not found:
+        print("404 Url Not Found")

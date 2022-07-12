@@ -20,8 +20,12 @@ class Product:
         self.quantity = quantity
         self.category = category
         Product.objects.append(self)
+        Product._id += 1
     def __str__(self):
         return (f'{self.title} [{self.quantity}] - ${self.price}\n({self.desc[:20]})')
+    @property
+    def comments(self):
+        return [c for c in Comment.objects if c.product == self]
 class Comment:
     objects = []
     def __init__(self, user, product, body):
