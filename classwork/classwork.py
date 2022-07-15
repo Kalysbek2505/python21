@@ -22,16 +22,36 @@
 #Classwork 2
 class Proverka:
     def password_proverka(self, username, password):
-        
+        if self.username == username and self.password == password:
+            print('successfully createed')
+        else:
+            print('ERROR')
 class Instagram(Proverka):
     def __init__(self, username, password):
         self.username = username
         self.password = password
-    def post_post(self, post_name):
-        self.post_name = post_name
-        print(f'Post name is {self.post_name}, username {self.username} password: {self.password}')
+        self.count = 0
+    def post_post(self, post_name, username, password):
+        super().password_proverka(username, password)
+        self.count += 1 
+        print(f'Post name is {post_name}, username {self.username} password: {self.password}')
     
 class TikTok(Proverka):
-    pass
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+        self.count = 0
+    def post_video(self, video, username, password):
+        super().password_proverka(username, password)
+        self.count += 1
+        print(f'New Video {video}, username:{self.username}, password:{self.password}')
+obj1 = Instagram('goodboy', 'ewq')
+obj1.post_post('kal', 'goodboy', 'eq')
+print(obj1.count)
+obj2 = TikTok('rew', 'wq')
+obj2.post_video('werw', 'rew', 'wq')
+print(obj2.count)
+
+
 
     
