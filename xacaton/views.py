@@ -1,9 +1,8 @@
 
 import sqlite3
-# // FOR CREATING RECORDS FUNCTION DEFINITION
 
 from models import Cars
-
+# CREATE
 def create():
     try:
         Cars(str(input("Введите марку: ")), str(input("Введите модель: ")), int(input("Введите год выпуска: ")), round(float(input("Введите обьем двигателя: ")),1), str(input("Укажите цвет: ")), input("Укажите тип кузова\n*седан\n*универсал.купе\n*хэтчбэк\n*минивен\n*внедорожник\n*пикап\n====================\n "), int(input("Введите пробег: ")), round(float(input("Введите цену: ")),2))
@@ -17,24 +16,25 @@ def create():
             query = "INSERT into USERS (marka, model, year, engine_volume, color, cusov, probeg, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
             cursor.execute(query, data)
             con.commit()
-            ch = input("Do You want to Add More Records(Y/N): ")
+            ch = input("Ты ещё хочешь добавить(Y/N): ")
             if ch == "N" or ch == "n":
                 cursor.close()
                 break
             else:
                 pass
     except:
-        print("Error in Record Creation")
+        print("Ошибка подумай ещё")
 
-# FOR READING ONE RECORD FUNCTION DEFINITION
+# READ
 def read_one():
     con = sqlite3.connect("xacaton/data.db")
     cursor = con.cursor()
-    ids = int(input("Enter Your ID: "))
+    ids = int(input("ID: "))
     query = "SELECT * from USERS WHERE id = ?"
     result = cursor.execute(query, (ids,))
     if (result):
         for i in result:
+            print("\n====УСПЕШНО====")
             print('*' * 40)
             print(f"Марка: {i[1]}")
             print(f"Модель: {i[2]}")
@@ -46,17 +46,17 @@ def read_one():
             print(f'Цена: {i[8]}')
             print('*'*40)
     else:
-        print("Roll Number Does not Exist")
+        
         cursor.close()
 
-# FOR READING ALL RECORDS FUNCTION DEFINITION
+# READ ALL
 def read_all():
     con = sqlite3.connect("xacaton/data.db")
     cursor = con.cursor()
     query = "SELECT * from USERS"
     result = cursor.execute(query)
     if (result):
-        print("\n<===Available Records===>")
+        print("\n====УСПЕШНО====")
         for i in result:
             print('*' * 40)
             print(f"Марка: {i[1]}")
@@ -71,11 +71,11 @@ def read_all():
     else:
         pass
     
-# FOR UPDATING RECORDS FUNCTION DEFINITION
+# UPDATE
 def update():
     con = sqlite3.connect("xacaton/data.db")
     cursor = con.cursor()
-    idd = int(input("Enter ID: "))
+    idd = int(input("ID: "))
     marka = input("Введите марку: ")
     model = (input("Введите модель: "))
     year = int(input("Введите год выпуска: "))
@@ -91,21 +91,21 @@ def update():
     cursor.close()
     if (result):
         print('*' * 20)
-        print("Records Updated")
+        print("Успешно обновлена")
         print('*' * 20)
     else:
-        print("Something Error in Updation")
+        print("ОШИБКА ДУМАЙ КАЛЫС")
 
-# FOR DELETING RECORDS FUNCTION DEFINITION
+# DELETE
 def delete():
     con = sqlite3.connect("xacaton/data.db")
     cursor = con.cursor()
-    idd = int(input("Enter ID: "))
+    idd = int(input("ID: "))
     query = "DELETE from USERS where ID = ?"
     result = cursor.execute(query, (idd,))
     con.commit()
     cursor.close()
     if (result):
-        print("One record Deleted")
+        print("УСПЕШНО УДАЛЕНО")
     else:
-        print("Something Error in Deletion")
+        print("ОШИБКАААААА КАЛЫЫЫС      ")

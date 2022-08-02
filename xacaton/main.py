@@ -1,27 +1,27 @@
 
 from views import create, read_one, read_all, update, delete
-# MAIN BLOCK
-def main_block():
+#MENU
+def menu_block():
     try:
         while (True):
-            print("1). Create Records: ")
-            print("2). Read Records: ")
-            print("3). Update Records: ")
-            print("4). Delete Records: ")
+            print("1). Create: ")
+            print("2). Read: ")
+            print("3). Update: ")
+            print("4). Delete: ")
             print("5). Exit")
-            ch = int(input("Enter Your Choice: "))
+            ch = int(input("ВЫБЕРИ ЧТО ТЫ ХОЧЕШЬ СДЕЛАТЬ: "))
             if ch == 1:
                 create()
             elif ch == 2:
-                print("1). Read Single Record")
-                print("2). Read All Records")
-                choice = int(input("Enter Your Choice: "))
+                print("1). ЧИТАЕТ ТОЛЬКО ОДИН")
+                print("2). ЧИТАЕТ ВСЁ")
+                choice = int(input("ВЫБЕРИ ЧТО ТЫ ХОЧЕШЬ СДЕЛАТЬ: "))
                 if choice == 1:
                     read_one()
                 elif choice == 2:
                     read_all()
                 else:
-                    print("Wrong Choice Entered")
+                    print("ОШИБКА ПРИ ВЫБОРЕ")
             elif ch == 3:
                 update()
             elif ch == 4:
@@ -29,9 +29,9 @@ def main_block():
             elif ch == 5:
                 break
             else:
-                print("Enter Correct Choice")
+                print("ОШИБКА ВЫБОРЕ")
     except:
-        print("Database Error")
-main_block()
+        print("ОШИБКА БАЗЫ ДАННЫХ")
+menu_block()
 
 

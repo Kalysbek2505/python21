@@ -1,9 +1,12 @@
-'=============Миксины==============='
-# Миксины - классб который будет использоваться для наследования. от миксинов не создаются объекты
+"=====================Миксины======================="
+# Миксин - класс, который будет использоваться для наследования. от миксинов не создаются обьекты.
+
 class CreateMixin:
     def product_create(self, title, price):
+        # self.__class__ - обращение к классу, который наследовался от этого миксина
+        model = self.__class__
+
         obj = model()
-        model = model.__class__
         _id = model._id
         obj.title = title
         obj.price = price
@@ -13,28 +16,22 @@ class CreateMixin:
 
 class ReadMixin:
     def product_detail(self, p_id):
+        from pprint import pprint
         model = self.__class__
         obj = model.objects.get(p_id)
-        print({'id':obj.id, 'title':obj.title, 'price': obj.price})
+        pprint({"id":obj.id, "title":obj.title, "price":obj.price})
 
 class UpdateMixin:
-    pass
-
-
+    ...
 
 class DeleteMixin:
     def delete_product(self, p_id):
         model = self.__class__
         model.objects.pop(p_id)
 
-class ProductCRUD(CreateMixin, UpdateMixin, ReadMixin, DeleteMixin):
+class ProductCRUD(CreateMixin, ReadMixin, UpdateMixin, DeleteMixin):
     objects = {}
     _id = 1
-    
-crud = ProductCRUD()
-crud.product_create('obj1', 45)
-crud.product_create('obj2', 2321)
-print(crud.objects)
-crud.product_detail(1)
-crud.delete_product(1)
-print(crud.objects)
+
+    def __str__(self):
+        return f"{self.id} -> {self.title}"
